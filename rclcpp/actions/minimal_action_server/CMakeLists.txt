@@ -27,6 +27,12 @@ ament_target_dependencies(action_server_not_composable
   "rclcpp_action"
   "example_interfaces")
 
+add_executable(cancel_all_goals cancel_all_goals.cpp)
+ament_target_dependencies(cancel_all_goals
+  "rclcpp"
+  "rclcpp_action"
+  "example_interfaces")
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
@@ -35,6 +41,7 @@ endif()
 install(TARGETS
   action_server_not_composable
   action_server_member_functions
+  cancel_all_goals
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
